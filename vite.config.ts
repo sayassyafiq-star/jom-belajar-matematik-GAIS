@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/jom-belajar-matematik-GAIS/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
