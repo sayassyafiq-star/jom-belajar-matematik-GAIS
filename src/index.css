@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Tactile 3D press feel for buttons */
+.btn-tactile-primary {
+  box-shadow: 0 6px 0 0 #3730a3, 0 12px 16px -4px rgba(79, 70, 229, 0.35);
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-tactile-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 0 #3730a3, 0 16px 20px -4px rgba(79, 70, 229, 0.4);
+}
+
+.btn-tactile-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 0 #3730a3, 0 4px 8px -2px rgba(79, 70, 229, 0.3);
+}
+
+.btn-tactile-secondary {
+  box-shadow: 0 4px 0 0 #cbd5e1, 0 8px 12px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-tactile-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 #cbd5e1, 0 12px 16px -2px rgba(0, 0, 0, 0.08);
+}
+
+.btn-tactile-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 0 #cbd5e1, 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Jom Card Custom Keyframes */
+@keyframes jomCardShake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  20% { transform: translateX(-6px) rotate(-1.5deg); }
+  40% { transform: translateX(5px) rotate(1.5deg); }
+  60% { transform: translateX(-4px) rotate(-1deg); }
+  80% { transform: translateX(3px) rotate(0.5deg); }
+}
+
+@keyframes jomCardPop {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes questionEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes xpBadgePop {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.85);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-shake {
+  animation: jomCardShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.animate-card-pop {
+  animation: jomCardPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.animate-question-enter {
+  animation: questionEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-xp-pop {
+  animation: xpBadgePop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card-shake,
+  .animate-card-pop,
+  .animate-question-enter,
+  .animate-xp-pop,
+  .btn-tactile-primary,
+  .btn-tactile-secondary {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
